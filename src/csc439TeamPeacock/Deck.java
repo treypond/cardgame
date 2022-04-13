@@ -23,22 +23,22 @@ public class Deck {
         playingDeck = new ArrayList<>();
 
         for(int i = 0; i < 13; i++){
-            PlayingCard card = new PlayingCard("Hearts", i, false);
+            PlayingCard card = new PlayingCard("Hearts", i+1, false, true);
             playingDeck.add(card);
         }
 
         for(int i = 0; i < 13; i++){
-            PlayingCard card = new PlayingCard("Diamonds", i, false);
+            PlayingCard card = new PlayingCard("Diamonds", i+1, false, true);
             playingDeck.add(card);
         }
 
         for(int i = 0; i < 13; i++){
-            PlayingCard card = new PlayingCard("Spades", i, false);
+            PlayingCard card = new PlayingCard("Spades", i+1, false, true);
             playingDeck.add(card);
         }
 
         for(int i = 0; i < 13; i++){
-            PlayingCard card = new PlayingCard("Clubs", i, false);
+            PlayingCard card = new PlayingCard("Clubs", i+1, false, true);
             playingDeck.add(card);
         }
     }

@@ -15,6 +15,8 @@ public class PlayingCard {
 
     private boolean isWildcard;
 
+    private boolean isFaceDown;
+
     /**
      * The constructor for the card class assigns values to the variables above. A card has a number, a suit, and a
      * boolean value for whether or not it is wild.
@@ -22,10 +24,11 @@ public class PlayingCard {
      * @param number
      * @param isWildCard
      */
-    public PlayingCard(String suit, int number, boolean isWildCard) {
+    public PlayingCard(String suit, int number, boolean isWildCard, boolean isFaceDown) {
         this.suit = suit;
         this.number = number;
         this.isWildcard = isWildCard;
+        this.isFaceDown = isFaceDown;
     }
 
     /**
@@ -64,5 +67,63 @@ public class PlayingCard {
         else{
             return false;
         }
+    }
+
+    /**
+     * This method simply returns whether or not a card is face down. A value of
+     * true indicates that a card is face down.
+     * @return
+     */
+    public boolean faceDownGetter(){
+        return isFaceDown;
+    }
+
+    /**
+     * This method is used to set a card to be face down or not. If wantToBeFacedown is set to true
+     * then the user wants the playing card to be face down, if set to false then the user
+     * wants the playing card to be face up.
+     * @param wantToBeFacedown
+     */
+    public void faceDownSetter(boolean wantToBeFacedown){
+
+        //If you want the card to be face down and it isn't face down already, then set it to face down.
+        if(wantToBeFacedown && !isFaceDown){
+            isFaceDown = true;
+        }
+
+        //If you don't want the card to be face down and it is, then set it to face up again.
+        if(!wantToBeFacedown && isFaceDown){
+            isFaceDown = false;
+        }
+    }
+
+    /**
+     * This method converts the number of a card to its corresponding value in an actual card deck.
+     * Face cards are assumed to be 11-13, with 1 indicating an ace.
+     * @return
+     */
+    public String numberToCardConverter(){
+        if(number == 1){
+            return "Ace";
+        }
+        if(number < 11){
+            return Integer.toString(number);
+        }
+        if(number == 11){
+            return "Jack";
+        }
+        if(number == 12){
+            return "Queen";
+        }
+
+        return "King";
+    }
+
+    /**
+     * This method is used to convert the values of a card into a string for output purposes.
+     * @return
+     */
+    public String cardToString(){
+        return numberToCardConverter() + " of " + suitGetter();
     }
 }
