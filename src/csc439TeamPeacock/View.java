@@ -1,5 +1,11 @@
 package csc439TeamPeacock;
 
-public class View {
+abstract class View {
+
+    abstract void getInput();
+
+    abstract void outputMessage();
+
+
 
 }
