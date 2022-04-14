@@ -50,4 +50,24 @@ public class Shoe {
         return playingShoe.size();
     }
 
+    /**
+     * This method removes a random card from one of the decks within the shoe. If a deck is empty when this
+     * method is called, then the empty deck is removed and a different one is chosen to take from. This
+     * method is meant to simulate the removal of the top card in a shuffled shoe.
+     * @return
+     */
+    public PlayingCard getRandomCard(){
+        Random ran = new Random();
+        int seed = ran.nextInt(playingShoe.size());
+
+        //If the deck selected was empty, remove it and pick a different one
+        if(playingShoe.get(seed).getSize() == 0){
+            playingShoe.remove(seed);
+            seed = ran.nextInt(playingShoe.size());
+            return playingShoe.get(seed).getRandomCard();
+        }
+
+        return playingShoe.get(seed).getRandomCard();
+    }
+
 }
