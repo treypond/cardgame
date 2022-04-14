@@ -50,4 +50,18 @@ public class Shoe {
         return playingShoe.size();
     }
 
+    public PlayingCard getRandomCard(){
+        Random ran = new Random();
+        int seed = ran.nextInt(playingShoe.size());
+
+        //If the deck selected was empty, remove it and pick a different one
+        if(playingShoe.get(seed).getSize() == 0){
+            playingShoe.remove(seed);
+            seed = ran.nextInt(playingShoe.size());
+            return playingShoe.get(seed).getRandomCard();
+        }
+
+        return playingShoe.get(seed).getRandomCard();
+    }
+
 }

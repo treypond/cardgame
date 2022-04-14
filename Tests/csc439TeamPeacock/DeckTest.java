@@ -12,4 +12,11 @@ class DeckTest {
         assertEquals(52, testDeck.getSize());
     }
 
+    @Test
+    void getRandomCard() {
+        Deck testDeck = new Deck();
+        PlayingCard testCard = testDeck.getRandomCard();
+        assertEquals(51, testDeck.getSize());
+        assertEquals(PlayingCard.class, testCard.getClass());
+    }
 }

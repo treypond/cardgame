@@ -51,4 +51,11 @@ public class Deck {
         return playingDeck.size();
     }
 
+
+    public PlayingCard getRandomCard(){
+        Random ran = new Random();
+        int cardNumber = ran.nextInt(playingDeck.size());
+        return playingDeck.remove(cardNumber);
+    }
+
 }

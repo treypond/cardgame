@@ -18,13 +18,17 @@ public class Controller {
      */
     public void playGame(){
 
+        int numOfPlayers = gameView.displayTitleScreen();
+
         //If the number of players is greater than 4, use two decks. Otherwise use one.
-        if(gameView.displayTitleScreen() > 4){
+        if(numOfPlayers > 4){
             Shoe gameShoe = new Shoe(2);
         }
         else{
             Shoe gameShoe = new Shoe(1);
         }
+
+
 
 
 
