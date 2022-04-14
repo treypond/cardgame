@@ -51,7 +51,11 @@ public class Deck {
         return playingDeck.size();
     }
 
-
+    /**
+     * This method returns a random card within a deck and removes the card from the pile. This
+     * is meant to simulate the removal of the top card within a shuffled deck.
+     * @return
+     */
     public PlayingCard getRandomCard(){
         Random ran = new Random();
         int cardNumber = ran.nextInt(playingDeck.size());
