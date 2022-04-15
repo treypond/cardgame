@@ -120,10 +120,15 @@ public class PlayingCard {
     }
 
     /**
-     * This method is used to convert the values of a card into a string for output purposes.
+     * This method is used to convert the values of a card into a string for output purposes. If
+     * a card is face down then state it as such, don't return the value of the card (since it can't be seen).
      * @return
      */
     public String cardToString(){
+        if(isFaceDown){
+            return "Face down card";
+        }
+
         return numberToCardConverter() + " of " + suitGetter();
     }
 }

@@ -72,5 +72,8 @@ class PlayingCardTest {
     void cardToString() {
         PlayingCard testCard = new PlayingCard("Hearts", 6, false, false);
         assertEquals("6 of Hearts", testCard.cardToString());
+
+        PlayingCard testCard2 = new PlayingCard("Hearts", 6, false, true);
+        assertEquals("Face down card", testCard2.cardToString());
     }
 }

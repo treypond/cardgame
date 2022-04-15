@@ -46,8 +46,18 @@ public class CLIView extends View {
      * This is a filler method for obtaining input from a user. It currently has no purpose.
      */
     @Override
-    void getInput(){
-
+    int getInput(){
+        System.out.println("Action 1 or 2?");
+        int choice = input.nextInt();
+        if(choice == 1){
+            return 1;
+        }
+        if(choice == 2){
+            return 2;
+        }
+        else{
+            return -1;
+        }
     }
 
     /**
@@ -57,6 +67,28 @@ public class CLIView extends View {
     @Override
     void outputMessage(String message){
         System.out.println(message);
+    }
+
+    /**
+     * This method displays who's turn it is.
+     * @param player
+     */
+    @Override
+    void displayTurn(Player player){
+        System.out.println("It is Player's "+player.name+" turn.");
+    }
+
+    /**
+     * This method displays all the actions of an action list.
+     * @param actionList
+     */
+    @Override
+    void displayActions(ArrayList<String> actionList){
+        System.out.println("Action List: ");
+        for(int i=0;i<actionList.size();i++){
+            System.out.println(actionList.get(i));
+        }
+        System.out.println("End of Action List");
     }
 
 }
