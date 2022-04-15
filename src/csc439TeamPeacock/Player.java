@@ -7,8 +7,10 @@ import java.util.*;
  */
 
 public class Player {
-       Hand hand;
-       String name;
+
+    Hand hand;
+    String name;
+
 
     /**
      * This creates the player
@@ -16,19 +18,33 @@ public class Player {
      * @param name
      */
     public Player(Hand hand, String name){
-      this.hand=hand;
-      this.name=name;
+
+        this.hand=hand;
+        this.name=name;
     }
 
     /**
      *  This is a method that returns an arraylist of all the possible actions available to the player.
      * @return
      */
-    public ArrayList<String> ActionList(){
+    public ArrayList<String> ActionList(boolean cardHasBeenDrawn){
         ArrayList<String> actionList= new ArrayList<String>();
-        //Add code to determine and action to actionList
-        return actionList;
+
+        //List of actions the player can take on their turn if they have already picked up a card from the deck.
+        if(cardHasBeenDrawn) {
+            actionList.add("Discard card");
+            actionList.add("Replace a card in your hand");
+            return actionList;
+        }
+
+        //List of actions that a player can take on their turn, assuming they haven't already picked up a card.
+        actionList.add("Draw from shoe");
+        actionList.add("Draw from discard pile");
+
+      
     }
 
+    
+   
 
 }
