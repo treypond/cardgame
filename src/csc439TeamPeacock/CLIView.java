@@ -59,4 +59,25 @@ public class CLIView extends View {
         System.out.println(message);
     }
 
+    /**
+     * This method displays who's turn it is.
+     * @param player
+     */
+   @Override
+    void displayTurn(Player player){
+        System.out.println("It is Player's "+player.name+" turn");
+   }
+
+    /**
+     * This method displays all the actions of an action list.
+     * @param actionList
+     */
+   @Override
+    void displayActions(ArrayList<String> actionList){
+       System.out.println("Action List: ");
+       for(int i=0;i<actionList.size();i++){
+           System.out.println(actionList.get(i));
+       }
+       System.out.println("End of Action List");
+   }
 }
