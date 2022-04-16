@@ -73,20 +73,15 @@ public class CLIView extends View {
      * This method displays who's turn it is.
      * @param player
      */
-
     @Override
     void displayTurn(Player player){
         System.out.println("It is Player's "+player.name+" turn.");
     }
 
-   
-
-
     /**
      * This method displays all the actions of an action list.
      * @param actionList
      */
-
     @Override
     void displayActions(ArrayList<String> actionList){
         System.out.println("Action List: ");
@@ -103,6 +98,10 @@ public class CLIView extends View {
         return num;
     }
 
-  
+    @Override
+    int quitGame(){
+        System.out.println("Enter -1 if you would like to exit the game:");
+        return input.nextInt();
+    }
 
 }

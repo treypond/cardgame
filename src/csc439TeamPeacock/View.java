@@ -19,4 +19,5 @@ abstract class View {
     abstract int getDiscardNum();
 
 
+    abstract int quitGame();
 }
