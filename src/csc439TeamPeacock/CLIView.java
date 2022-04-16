@@ -91,4 +91,17 @@ public class CLIView extends View {
         System.out.println("End of Action List");
     }
 
+    @Override
+    int getDiscardNum(){
+        System.out.println(" Enter card number to discard: ");
+        int num=input.nextInt();
+        return num;
+    }
+
+    @Override
+    int quitGame(){
+        System.out.println("Enter -1 if you would like to exit the game:");
+        return input.nextInt();
+    }
+
 }
