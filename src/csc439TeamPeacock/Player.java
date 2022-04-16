@@ -7,8 +7,10 @@ import java.util.*;
  */
 
 public class Player {
+
     Hand hand;
     String name;
+
 
     /**
      * This creates the player
@@ -16,6 +18,7 @@ public class Player {
      * @param name
      */
     public Player(Hand hand, String name){
+
         this.hand=hand;
         this.name=name;
     }
@@ -37,8 +40,11 @@ public class Player {
         //List of actions that a player can take on their turn, assuming they haven't already picked up a card.
         actionList.add("Draw from shoe");
         actionList.add("Draw from discard pile");
-        return actionList;
+
+      
     }
 
+    
+   
 
 }
