@@ -40,8 +40,13 @@ public class Player {
         //List of actions that a player can take on their turn, assuming they haven't already picked up a card.
         actionList.add("Draw from shoe");
         actionList.add("Draw from discard pile");
+
         return actionList;
       
+
+
+      
+
     }
 
     

@@ -3,9 +3,20 @@ package csc439TeamPeacock;
 import java.util.ArrayList;
 import java.util.*;
 
+
+
+import java.util.Stack;
+
+
+
+
 public class Controller {
 
     View gameView;
+
+
+   Shoe gameShoe;
+
     PlayingCard temp;
 
     /**
@@ -34,11 +45,7 @@ public class Controller {
         }
 
         //Create an array of Players
-        ArrayList<Player>players=new ArrayList<Player>();
 
-        for(int i=0; i < numOfPlayers; i++){
-            players.add(new Player(getHand(gameShoe),""+i));
-        }
 
         //Now that players have been created and assigned hands, begin taking turns and playing the game.
         //The game continues until the gameOver variable has been set to true
@@ -69,6 +76,7 @@ public class Controller {
 
                 if(discardNum==0){
                     players.get(turn).hand.card1=gameShoe.getRandomCard();
+
                     players.get(turn).hand.card1.faceDownSetter(false);
                 }
                 if(discardNum==1){
@@ -90,12 +98,15 @@ public class Controller {
                 if(discardNum==5){
                     players.get(turn).hand.card6=gameShoe.getRandomCard();
                     players.get(turn).hand.card6.faceDownSetter(false);
+
                 }
+               
             }
 
             if(action == 2){
                 //Add code for taking the top card off of the discard pile (using discardPile.pop)
                 int discardNum = gameView.getDiscardNum();
+
                 temp = (PlayingCard) discardPile.peek();
                 discardPile.push(players.get(turn).hand.getHand()[discardNum]);
                 if(discardNum==0){
@@ -122,6 +133,7 @@ public class Controller {
                     players.get(turn).hand.card6=temp;
                     players.get(turn).hand.card6.faceDownSetter(false);
                 }
+               
             }
 
             //Ask the player if they want to quit the game, if they do then set gameOver to true so the loop ends
