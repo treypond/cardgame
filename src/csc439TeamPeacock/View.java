@@ -16,5 +16,7 @@ abstract class View {
 
     abstract void displayActions(ArrayList<String> actionList);
 
+    abstract int getDiscardNum();
+
 
 }

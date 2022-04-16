@@ -1,6 +1,7 @@
 package csc439TeamPeacock;
 
 import java.util.ArrayList;
+import java.util.*;
 
 import java.util.Stack;
 
@@ -10,6 +11,8 @@ public class Controller {
 
     View gameView;
    Shoe gameShoe;
+    PlayingCard temp;
+
     /**
      * This is the constructor for the controller object. It takes a view object as its parameter
      * and uses that for all input and output.
@@ -46,11 +49,7 @@ public class Controller {
         }
 
         //Create an array of Players
-        ArrayList<Player>players=new ArrayList<Player>();
 
-        for(int i=0; i < numOfPlayers; i++){
-            players.add(new Player(getHand(gameShoe),""+i));
-        }
 
         //Now that players have been created and assigned hands, begin taking turns and playing the game.
         //The game continues until the gameOver variable has been set to true
@@ -76,10 +75,52 @@ public class Controller {
             int action = gameView.getInput();
             if(action == 1){
                 //Add code for drawing from the deck (using shoe.getRandomCard)
+                int discardNum = gameView.getDiscardNum();
+                discardPile.push(players.get(turn).hand.getHand()[discardNum]);
+
+                if(discardNum==0){
+                    players.get(turn).hand.card1=gameShoe.getRandomCard();
+                }
+                if(discardNum==1){
+                    players.get(turn).hand.card2=gameShoe.getRandomCard();
+                }
+                if(discardNum==2){
+                    players.get(turn).hand.card3=gameShoe.getRandomCard();
+                }
+                if(discardNum==3){
+                    players.get(turn).hand.card4=gameShoe.getRandomCard();
+                }
+                if(discardNum==4){
+                    players.get(turn).hand.card5=gameShoe.getRandomCard();
+                }
+                if(discardNum==5){
+                    players.get(turn).hand.card6=gameShoe.getRandomCard();
+                }
             }
 
             if(action == 2){
                 //Add code for taking the top card off of the discard pile (using discardPile.pop)
+                int discardNum = gameView.getDiscardNum();
+               temp = (PlayingCard) discardPile.peek();
+                discardPile.push(players.get(turn).hand.getHand()[discardNum]);
+                if(discardNum==0){
+                    players.get(turn).hand.card1=temp;
+                }
+                if(discardNum==1){
+                    players.get(turn).hand.card2=temp;
+                }
+                if(discardNum==2){
+                    players.get(turn).hand.card3=temp;
+                }
+                if(discardNum==3){
+                    players.get(turn).hand.card4=temp;
+                }
+                if(discardNum==4){
+                    players.get(turn).hand.card5=temp;
+                }
+                if(discardNum==5){
+                    players.get(turn).hand.card6=temp;
+                }
             }
 
 

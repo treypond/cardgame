@@ -41,7 +41,7 @@ public class Player {
         actionList.add("Draw from shoe");
         actionList.add("Draw from discard pile");
 
-      
+      return actionList;
     }
 
     
